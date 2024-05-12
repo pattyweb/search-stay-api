@@ -149,7 +149,7 @@ These examples assume that you are running the API locally on your machine. Repl
 - **POST /api/register**: Register a new user.
 - Example:
     ```bash
-    curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe", "email":"doe@email.com", "password":"password", "password_confirmation":"passowrd"}' http://localhost/api/register
+    curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe", "email":"doe@email.com", "password":"password", "password_confirmation":"password"}' http://localhost/api/register
     ```
     
 - **POST /api/login**: Login with email and password to obtain an access token.
