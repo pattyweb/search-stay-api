@@ -28,4 +28,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
 Route::resource('books', BookController::class);
 Route::resource('stores', StoreController::class);
+// Attach a Book to a Store
+Route::post('stores/{store_id}/books/{book_id}/attach', [StoreController::class, 'attachBook']);
+
+// Detach a Book from a Store
+Route::post('stores/{store_id}/books/{book_id}/detach', [StoreController::class, 'detachBook']);
+
+// Attach a Store to a Book
+Route::post('books/{book_id}/stores/{store_id}/attach', [BookController::class, 'attachStore']);
+
+// Detach a Store from a Book
+Route::post('books/{book_id}/stores/{store_id}/detach', [BookController::class, 'detachStore']);
 });
