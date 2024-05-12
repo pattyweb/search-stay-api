@@ -1,3 +1,154 @@
+## Bookstore API Documentation
+
+Welcome to the documentation for the Bookstore API. This API provides endpoints for managing books and stores, as well as user authentication features.
+
+### Getting Started with Docker Installation Using Sail
+
+To get started with using the Bookstore API using Docker and Laravel Sail, follow the steps below:
+
+1. Clone this repository to your local machine:
+
+```bash
+git clone https://github.com/pattyweb/search-stay-api.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd bookstore-api
+```
+
+3. Copy the example environment file and configure it with your database settings:
+
+```bash
+cp .env.example .env
+```
+
+4. Install Laravel Sail:
+
+```bash
+./vendor/bin/sail install
+```
+
+5. Start the development environment:
+
+```bash
+./vendor/bin/sail up -d
+```
+
+6. Generate the application key:
+
+```bash
+./vendor/bin/sail artisan key:generate
+```
+
+7. Run the database migrations to create the necessary tables:
+
+```bash
+./vendor/bin/sail artisan migrate
+```
+
+8. (Optional) Seed the database with sample data:
+
+```bash
+./vendor/bin/sail artisan db:seed
+```
+
+9. The API should now be accessible at `http://localhost`. You can make requests to the API using tools like Postman or Insomnia.
+
+---
+
+## API Endpoints
+
+### Books
+
+- **GET /api/books**: Get all books.
+- **POST /api/books**: Create a new book.
+- **GET /api/books/{id}**: Get a specific book by ID.
+- **PUT /api/books/{id}**: Update a book by ID.
+- **DELETE /api/books/{id}**: Delete a book by ID.
+
+### Stores
+
+- **GET /api/stores**: Get all stores.
+- **POST /api/stores**: Create a new store.
+- **GET /api/stores/{id}**: Get a specific store by ID.
+- **PUT /api/stores/{id}**: Update a store by ID.
+- **DELETE /api/stores/{id}**: Delete a store by ID.
+
+### Authentication
+
+- **POST /api/register**: Register a new user.
+- **POST /api/login**: Login with email and password to obtain an access token.
+- **POST /api/logout**: Logout the authenticated user and revoke their access token.
+
+### User Management
+
+- **GET /api/user**: Get the authenticated user's details.
+
+## Authentication
+
+The Bookstore API uses Laravel Sanctum for API authentication. To access endpoints that require authentication, include the `Authorization` header with the value `Bearer <access_token>` in your requests, where `<access_token>` is the token obtained after logging in.
+
+---
+
+## Implement Book-Store Relationship
+
+The Bookstore API supports a many-to-many relationship between books and stores. This means that a book can be associated with multiple stores, and a store can carry multiple books.
+
+### How to Use the Relationship
+
+To associate a book with one or more stores, or to associate a store with one or more books, you can use the following endpoints:
+
+- **Attach a Book to a Store**: `POST /api/stores/{store_id}/books/{book_id}/attach`
+  - This endpoint attaches the specified book to the specified store.
+
+- **Detach a Book from a Store**: `POST /api/stores/{store_id}/books/{book_id}/detach`
+  - This endpoint detaches the specified book from the specified store.
+
+- **Attach a Store to a Book**: `POST /api/books/{book_id}/stores/{store_id}/attach`
+  - This endpoint attaches the specified store to the specified book.
+
+- **Detach a Store from a Book**: `POST /api/books/{book_id}/stores/{store_id}/detach`
+  - This endpoint detaches the specified store from the specified book.
+
+### Example Usage
+
+1. To attach a book with ID 1 to a store with ID 2:
+   ```bash
+   POST /api/stores/2/books/1/attach
+   ```
+
+2. To detach a book with ID 1 from a store with ID 2:
+   ```bash
+   POST /api/stores/2/books/1/detach
+   ```
+
+3. To attach a store with ID 2 to a book with ID 1:
+   ```bash
+   POST /api/books/1/stores/2/attach
+   ```
+
+4. To detach a store with ID 2 from a book with ID 1:
+   ```bash
+   POST /api/books/1/stores/2/detach
+   ```
+
+### Note
+
+Make sure to replace `{store_id}` and `{book_id}` with the actual IDs of the store and book you want to associate or disassociate.
+
+
+## Testing
+
+You can test the API endpoints using tools like Postman or Insomnia. Refer to the API endpoints section above for details on each endpoint and their respective HTTP methods.
+
+---
+
+This API was built using Laravel version 10 with MySQL and Docker.
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
