@@ -15,7 +15,7 @@ git clone https://github.com/pattyweb/search-stay-api.git
 2. Navigate to the project directory:
 
 ```bash
-cd bookstore-api
+cd search-stay-api
 ```
 
 3. Copy the example environment file and configure it with your database settings:
@@ -147,7 +147,16 @@ These examples assume that you are running the API locally on your machine. Repl
 ### Authentication
 
 - **POST /api/register**: Register a new user.
+- Example:
+    ```bash
+    curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe", "email":"doe@email.com", "password":"password", "password_confirmation":"passowrd"}' http://localhost/api/register
+    ```
+    
 - **POST /api/login**: Login with email and password to obtain an access token.
+- Example:
+    ```bash
+    curl -X POST -H "Content-Type: application/json" -d '{"email":"doe@email.com", "password":"password"}' http://localhost/api/login
+    ```
 
 ### User Management
 
