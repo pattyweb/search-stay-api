@@ -76,11 +76,78 @@ cp .env.example .env
 - **PUT /api/stores/{id}**: Update a store by ID.
 - **DELETE /api/stores/{id}**: Delete a store by ID.
 
+Here's an example usage for each of the endpoints:
+
+### Books
+
+- **GET /api/books**: Get all books.
+  - Example:
+    ```bash
+    curl http://localhost/api/books
+    ```
+
+- **POST /api/books**: Create a new book.
+  - Example:
+    ```bash
+    curl -X POST -H "Content-Type: application/json" -d '{"name":"Book Title", "isbn":"1234567890", "value":19.99}' http://localhost/api/books
+    ```
+
+- **GET /api/books/{id}**: Get a specific book by ID.
+  - Example:
+    ```bash
+    curl http://localhost/api/books/1
+    ```
+
+- **PUT /api/books/{id}**: Update a book by ID.
+  - Example:
+    ```bash
+    curl -X PUT -H "Content-Type: application/json" -d '{"name":"Updated Book Title"}' http://localhost/api/books/1
+    ```
+
+- **DELETE /api/books/{id}**: Delete a book by ID.
+  - Example:
+    ```bash
+    curl -X DELETE http://localhost/api/books/1
+    ```
+
+### Stores
+
+- **GET /api/stores**: Get all stores.
+  - Example:
+    ```bash
+    curl http://localhost/api/stores
+    ```
+
+- **POST /api/stores**: Create a new store.
+  - Example:
+    ```bash
+    curl -X POST -H "Content-Type: application/json" -d '{"name":"Bookstore Name", "address":"123 Main St", "active":true}' http://localhost/api/stores
+    ```
+
+- **GET /api/stores/{id}**: Get a specific store by ID.
+  - Example:
+    ```bash
+    curl http://localhost/api/stores/1
+    ```
+
+- **PUT /api/stores/{id}**: Update a store by ID.
+  - Example:
+    ```bash
+    curl -X PUT -H "Content-Type: application/json" -d '{"name":"Updated Bookstore Name"}' http://localhost/api/stores/1
+    ```
+
+- **DELETE /api/stores/{id}**: Delete a store by ID.
+  - Example:
+    ```bash
+    curl -X DELETE http://localhost/api/stores/1
+    ```
+
+These examples assume that you are running the API locally on your machine. Replace `http://localhost` with the appropriate URL if your API is hosted elsewhere. Additionally, make sure to replace the sample data (e.g., book titles, store names, IDs) with actual data when making requests.
+
 ### Authentication
 
 - **POST /api/register**: Register a new user.
 - **POST /api/login**: Login with email and password to obtain an access token.
-- **POST /api/logout**: Logout the authenticated user and revoke their access token.
 
 ### User Management
 
