@@ -42,7 +42,7 @@ composer install && ./vendor/bin/sail install
 ./vendor/bin/sail artisan key:generate
 ```
 
-7. Mysql Config:
+7. .env config:
 
 ```bash
 DB_CONNECTION=mysql
