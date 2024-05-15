@@ -42,19 +42,18 @@ composer install && ./vendor/bin/sail install
 ./vendor/bin/sail artisan key:generate
 ```
 
-7. Run the database migrations to create the necessary tables:
+7. Mysql Config:
 
 ```bash
-./vendor/bin/sail artisan migrate
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
 ```
 
-8. (Optional) Seed the database with sample data:
-
-```bash
-./vendor/bin/sail artisan db:seed
-```
-
-9. The API should now be accessible at `http://localhost`. You can make requests to the API using tools like Postman or Insomnia.
+8. The API should now be accessible at `http://localhost`. You can make requests to the API using tools like Postman or Insomnia.
 
 ---
 
