@@ -24,10 +24,10 @@ cd search-stay-api
 cp .env.example .env
 ```
 
-4. Install Laravel Sail:
+4. Install Composer and Laravel Sail:
 
 ```bash
-./vendor/bin/sail install
+composer install && ./vendor/bin/sail install
 ```
 
 5. Start the development environment:
